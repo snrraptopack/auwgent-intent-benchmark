@@ -1,0 +1,4 @@
+source: "./auwgent/tools-100"
+output: "./auwgent/tools-100/generated"
+target:
+  - ts

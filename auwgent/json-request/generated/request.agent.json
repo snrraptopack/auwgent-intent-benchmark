@@ -1,0 +1,216 @@
+{
+  "name": "TestUser",
+  "modelConfig": [
+    {
+      "defaultConfig": {
+        "model": {
+          "type": "custom",
+          "id": "groq-api",
+          "url": "https://api.groq.com/openai/v1",
+          "modelName": "llama-3.3-70b-versatile",
+          "config": null
+        },
+        "embedding": null,
+        "prompt": {
+          "type": "template",
+          "value": [
+            {
+              "type": "literal",
+              "value": "Your output must match [schema:type] ... [/schema]"
+            }
+          ]
+        }
+      },
+      "namedConfig": []
+    }
+  ],
+  "input": null,
+  "output": {
+    "__variants": {
+      "Booking": {
+        "request_type": {
+          "type": {
+            "type": "union",
+            "options": [
+              "booking"
+            ]
+          },
+          "optional": false
+        },
+        "payload": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "booking_id": {
+                "type": "string",
+                "optional": false
+              },
+              "date": {
+                "type": "string",
+                "optional": false,
+                "description": "ISO date"
+              },
+              "participants": {
+                "type": {
+                  "type": "array",
+                  "items": "string"
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": false
+        }
+      },
+      "Support": {
+        "request_type": {
+          "type": {
+            "type": "union",
+            "options": [
+              "support"
+            ]
+          },
+          "optional": false
+        },
+        "payload": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "ticket_id": {
+                "type": "string",
+                "optional": false
+              },
+              "issue_type": {
+                "type": {
+                  "type": "union",
+                  "options": [
+                    "billing",
+                    "technical",
+                    "general"
+                  ]
+                },
+                "optional": false
+              },
+              "priority": {
+                "type": {
+                  "type": "union",
+                  "options": [
+                    "low",
+                    "medium",
+                    "high"
+                  ]
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": false
+        }
+      }
+    }
+  },
+  "context": null,
+  "tools": [],
+  "workflows": [],
+  "helpers": [],
+  "components": [],
+  "types": {
+    "Booking": {
+      "isOutput": false,
+      "properties": {
+        "request_type": {
+          "type": {
+            "type": "union",
+            "options": [
+              "booking"
+            ]
+          },
+          "optional": false,
+          "description": null
+        },
+        "payload": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "booking_id": {
+                "type": "string",
+                "optional": false
+              },
+              "date": {
+                "type": "string",
+                "optional": false,
+                "description": "ISO date"
+              },
+              "participants": {
+                "type": {
+                  "type": "array",
+                  "items": "string"
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": false,
+          "description": null
+        }
+      },
+      "@examples": []
+    },
+    "Support": {
+      "isOutput": false,
+      "properties": {
+        "request_type": {
+          "type": {
+            "type": "union",
+            "options": [
+              "support"
+            ]
+          },
+          "optional": false,
+          "description": null
+        },
+        "payload": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "ticket_id": {
+                "type": "string",
+                "optional": false
+              },
+              "issue_type": {
+                "type": {
+                  "type": "union",
+                  "options": [
+                    "billing",
+                    "technical",
+                    "general"
+                  ]
+                },
+                "optional": false
+              },
+              "priority": {
+                "type": {
+                  "type": "union",
+                  "options": [
+                    "low",
+                    "medium",
+                    "high"
+                  ]
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": false,
+          "description": null
+        }
+      },
+      "@examples": []
+    }
+  },
+  "helperToolGrants": null,
+  "helperHandoff": null,
+  "tests": [],
+  "lifecycle": null,
+  "customIntents": null
+}

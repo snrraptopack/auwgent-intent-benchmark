@@ -1,0 +1,79 @@
+{
+  "name": "TestUser",
+  "modelConfig": [
+    {
+      "defaultConfig": {
+        "model": {
+          "type": "custom",
+          "id": "groq-api",
+          "url": "https://api.groq.com/openai/v1",
+          "modelName": "llama-3.3-70b-versatile",
+          "config": null
+        },
+        "embedding": null,
+        "prompt": {
+          "value": "Be polite and concise",
+          "type": "literal"
+        }
+      },
+      "namedConfig": []
+    }
+  ],
+  "input": null,
+  "output": {
+    "name": {
+      "type": "string",
+      "optional": false
+    },
+    "age": {
+      "type": "number",
+      "optional": false
+    },
+    "country": {
+      "type": "string",
+      "optional": false
+    },
+    "is_student": {
+      "type": "boolean",
+      "optional": true
+    }
+  },
+  "context": null,
+  "tools": [],
+  "workflows": [],
+  "helpers": [],
+  "components": [],
+  "types": {
+    "UserAccount": {
+      "isOutput": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "optional": false,
+          "description": null
+        },
+        "age": {
+          "type": "number",
+          "optional": false,
+          "description": null
+        },
+        "is_student": {
+          "type": "boolean",
+          "optional": true,
+          "description": null
+        },
+        "country": {
+          "type": "string",
+          "optional": false,
+          "description": null
+        }
+      },
+      "@examples": []
+    }
+  },
+  "helperToolGrants": null,
+  "helperHandoff": null,
+  "tests": [],
+  "lifecycle": null,
+  "customIntents": null
+}

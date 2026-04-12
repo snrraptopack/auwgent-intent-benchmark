@@ -1,0 +1,1364 @@
+I need you to execute a system diagnostic workflow. First, use search_web to look up 'Latest TypeScript version'. Second, get the weather summary for 'San Francisco' in celsius. Third, run a shell command saying 'echo diagnostic complete' in '/tmp'. Fourth, write that exact shell command output to a file located at '/tmp/log.txt'. Fifth, create a high-priority to-do due on '2024-05-30' titled 'System Diagnostic Complete'. Finally, send an email to 'admin@example.com' with the subject 'Diagnostic Logs' and the body matching the completed status.
+tool_call {
+  type: "search_web",
+  args: {
+    num_results: 5,
+    query: "Latest TypeScript version",
+  },
+}
+tool_call {
+  type: "get_weather_summary",
+  args: {
+    city: "San Francisco",
+    unit: "celsius",
+  },
+}
+tool_call {
+  type: "run_shell_command",
+  args: {
+    command: "echo diagnostic complete",
+    working_dir: "/tmp",
+  },
+}
+tool_call {
+  type: "write_file",
+  args: {
+    path: "/tmp/log.txt",
+    content: "diagnostic complete",
+  },
+}
+tool_call {
+  type: "create_todo",
+  args: {
+    priority: "high",
+    title: "System Diagnostic Complete",
+    due_date: "2024-05-30",
+  },
+}
+tool_call {
+  type: "send_email",
+  args: {
+    subject: "Diagnostic Logs",
+    to: "admin@example.com",
+    body: "diagnostic complete",
+  },
+}
+text {
+  text: "All tasks completed successfully.",
+}
+{
+  "aggregate": {
+    "prompt_tokens": 4260,
+    "completion_tokens": 917,
+    "total_tokens": 5177
+  },
+  "turns": [
+    {
+      "turn_index": 0,
+      "usage": {
+        "prompt_tokens": 1212,
+        "completion_tokens": 510,
+        "total_tokens": 1722
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    },
+    {
+      "turn_index": 1,
+      "usage": {
+        "prompt_tokens": 1419,
+        "completion_tokens": 324,
+        "total_tokens": 1743
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    },
+    {
+      "turn_index": 2,
+      "usage": {
+        "prompt_tokens": 1629,
+        "completion_tokens": 83,
+        "total_tokens": 1712
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    }
+  ]
+}
+
+
+//  vercel
+
+ting Vercel AI SDK Tools-40 Benchmark (OpenAI Compatible Routing)...
+
+
+==================================
+--- Final Text Response ---
+The diagnostic workflow has been completed:
+
+- Latest TypeScript version information retrieved.
+- Weather in San Francisco: 22 °C and sunny.
+- Shell command executed; output written to `/tmp/log.txt`.
+- High‑priority to‑do created (ID: `todo_x0zl7q`) for 2024‑05‑30.
+- Email sent to **admin@example.com** with subject **“Diagnostic Logs.”**
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "inputTokens": 1642,
+  "inputTokenDetails": {
+    "noCacheTokens": 1642
+  },
+  "outputTokens": 223,
+  "outputTokenDetails": {
+    "textTokens": 38,
+    "reasoningTokens": 185
+  },
+  "totalTokens": 1865,
+  "raw": {
+    "prompt_tokens": 1642,
+    "completion_tokens": 223,
+    "total_tokens": 1865,
+    "completion_tokens_details": {
+      "reasoning_tokens": 185
+    }
+  },
+  "reasoningTokens": 185,
+  "effectiveInputTokens": 1642,
+  "cachedTokens": 0,
+  "raw_prompt": 1642
+}
+>>> Turn 0 Tool Calls Logged: ["search_web"]
+
+>>> Turn 1 Usage: {
+  "inputTokens": 1894,
+  "inputTokenDetails": {
+    "noCacheTokens": 1894
+  },
+  "outputTokens": 31,
+  "outputTokenDetails": {
+    "textTokens": 25,
+    "reasoningTokens": 6
+  },
+  "totalTokens": 1925,
+  "raw": {
+    "prompt_tokens": 1894,
+    "completion_tokens": 31,
+    "total_tokens": 1925,
+    "completion_tokens_details": {
+      "reasoning_tokens": 6
+    }
+  },
+  "reasoningTokens": 6,
+  "effectiveInputTokens": 1894,
+  "cachedTokens": 0,
+  "raw_prompt": 1894
+}
+>>> Turn 1 Tool Calls Logged: ["get_weather_summary"]
+
+>>> Turn 2 Usage: {
+  "inputTokens": 1947,
+  "inputTokenDetails": {
+    "noCacheTokens": 1947
+  },
+  "outputTokens": 36,
+  "outputTokenDetails": {
+    "textTokens": 31,
+    "reasoningTokens": 5
+  },
+  "totalTokens": 1983,
+  "raw": {
+    "prompt_tokens": 1947,
+    "completion_tokens": 36,
+    "total_tokens": 1983,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5
+    }
+  },
+  "reasoningTokens": 5,
+  "effectiveInputTokens": 3739,
+  "cachedTokens": 1792,
+  "raw_prompt": 1947
+}
+>>> Turn 2 Tool Calls Logged: ["run_shell_command"]
+
+>>> Turn 3 Usage: {
+  "inputTokens": 1995,
+  "inputTokenDetails": {
+    "noCacheTokens": 1995
+  },
+  "outputTokens": 39,
+  "outputTokenDetails": {
+    "textTokens": 31,
+    "reasoningTokens": 8
+  },
+  "totalTokens": 2034,
+  "raw": {
+    "prompt_tokens": 1995,
+    "completion_tokens": 39,
+    "total_tokens": 2034,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 8
+    }
+  },
+  "reasoningTokens": 8,
+  "effectiveInputTokens": 3787,
+  "cachedTokens": 1792,
+  "raw_prompt": 1995
+}
+>>> Turn 3 Tool Calls Logged: ["write_file"]
+
+>>> Turn 4 Usage: {
+  "inputTokens": 2043,
+  "inputTokenDetails": {
+    "noCacheTokens": 2043
+  },
+  "outputTokens": 42,
+  "outputTokenDetails": {
+    "textTokens": 38,
+    "reasoningTokens": 4
+  },
+  "totalTokens": 2085,
+  "raw": {
+    "prompt_tokens": 2043,
+    "completion_tokens": 42,
+    "total_tokens": 2085,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4
+    }
+  },
+  "reasoningTokens": 4,
+  "effectiveInputTokens": 3835,
+  "cachedTokens": 1792,
+  "raw_prompt": 2043
+}
+>>> Turn 4 Tool Calls Logged: ["create_todo"]
+
+>>> Turn 5 Usage: {
+  "inputTokens": 2100,
+  "inputTokenDetails": {
+    "noCacheTokens": 2100
+  },
+  "outputTokens": 40,
+  "outputTokenDetails": {
+    "textTokens": 35,
+    "reasoningTokens": 5
+  },
+  "totalTokens": 2140,
+  "raw": {
+    "prompt_tokens": 2100,
+    "completion_tokens": 40,
+    "total_tokens": 2140,
+    "completion_tokens_details": {
+      "reasoning_tokens": 5
+    }
+  },
+  "reasoningTokens": 5,
+  "effectiveInputTokens": 2100,
+  "cachedTokens": 0,
+  "raw_prompt": 2100
+}
+>>> Turn 5 Tool Calls Logged: ["send_email"]
+
+>>> Turn 6 Usage: {
+  "inputTokens": 2149,
+  "inputTokenDetails": {
+    "noCacheTokens": 2149
+  },
+  "outputTokens": 90,
+  "outputTokenDetails": {
+    "textTokens": 90
+  },
+  "totalTokens": 2239,
+  "raw": {
+    "prompt_tokens": 2149,
+    "completion_tokens": 90,
+    "total_tokens": 2239
+  },
+  "effectiveInputTokens": 2149,
+  "cachedTokens": 0,
+  "raw_prompt": 2149
+}
+>>> Turn 6 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "inputTokens": 13770,
+  "inputTokenDetails": {
+    "noCacheTokens": 13770
+  },
+  "outputTokens": 501,
+  "outputTokenDetails": {
+    "textTokens": 288,
+    "reasoningTokens": 213
+  },
+  "totalTokens": 14271,
+  "reasoningTokens": 213,
+  "effectiveInputTokens": 19146,
+  "totalCachedTokens": 5376
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+
+60 tools
+
+tool_call {
+  type: "search_web",
+  args: {
+    query: "Latest TypeScript version",
+    num_results: 1,
+  },
+}
+tool_call {
+  type: "get_weather_summary",
+  args: {
+    unit: "celsius",
+    city: "San Francisco",
+  },
+}
+tool_call {
+  type: "run_shell_command",
+  args: {
+    working_dir: "/tmp",
+    command: "echo diagnostic complete",
+  },
+}
+tool_call {
+  type: "write_file",
+  args: {
+    content: "diagnostic complete",
+    path: "/tmp/log.txt",
+  },
+}
+tool_call {
+  type: "create_todo",
+  args: {
+    due_date: "2024-05-30",
+    title: "System Diagnostic Complete",
+    priority: "high",
+  },
+}
+tool_call {
+  type: "send_email",
+  args: {
+    body: "Diagnostic complete",
+    subject: "Diagnostic Logs",
+    to: "admin@example.com",
+  },
+}
+text {
+  text: "All steps completed successfully: TypeScript version info retrieved, weather in San Francisco is 22 °C and sunny, shell command output logged, log file written, high‑priority to‑do
+created (ID: todo_bz8pw7), and email sent to admin@example.com.",
+}
+{
+  "aggregate": {
+    "prompt_tokens": 5400,
+    "completion_tokens": 1109,
+    "total_tokens": 6509
+  },
+  "turns": [
+    {
+      "turn_index": 0,
+      "usage": {
+        "prompt_tokens": 1629,
+        "completion_tokens": 354,
+        "total_tokens": 1983
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    },
+    {
+      "turn_index": 1,
+      "usage": {
+        "prompt_tokens": 1720,
+        "completion_tokens": 620,
+        "total_tokens": 2340
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    },
+    {
+      "turn_index": 2,
+      "usage": {
+        "prompt_tokens": 2051,
+        "completion_tokens": 135,
+        "total_tokens": 2186
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    }
+  ]
+}
+
+
+vercel
+
+
+The diagnostic workflow is now finished.
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "inputTokens": 2324,
+  "inputTokenDetails": {
+    "noCacheTokens": 2324
+  },
+  "outputTokens": 223,
+  "outputTokenDetails": {
+    "textTokens": 38,
+    "reasoningTokens": 185
+  },
+  "totalTokens": 2547,
+  "raw": {
+    "prompt_tokens": 2324,
+    "completion_tokens": 223,
+    "total_tokens": 2547,
+    "completion_tokens_details": {
+      "reasoning_tokens": 185
+    }
+  },
+  "reasoningTokens": 185,
+  "effectiveInputTokens": 2324,
+  "cachedTokens": 0,
+  "raw_prompt": 2324
+}
+>>> Turn 0 Tool Calls Logged: ["search_web"]
+
+>>> Turn 1 Usage: {
+  "inputTokens": 2576,
+  "inputTokenDetails": {
+    "noCacheTokens": 2576
+  },
+  "outputTokens": 61,
+  "outputTokenDetails": {
+    "textTokens": 37,
+    "reasoningTokens": 24
+  },
+  "totalTokens": 2637,
+  "raw": {
+    "prompt_tokens": 2576,
+    "completion_tokens": 61,
+    "total_tokens": 2637,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 24
+    }
+  },
+  "reasoningTokens": 24,
+  "effectiveInputTokens": 3856,
+  "cachedTokens": 1280,
+  "raw_prompt": 2576
+}
+>>> Turn 1 Tool Calls Logged: ["fetch_page_text"]
+
+>>> Turn 2 Usage: {
+  "inputTokens": 2648,
+  "inputTokenDetails": {
+    "noCacheTokens": 2648
+  },
+  "outputTokens": 61,
+  "outputTokenDetails": {
+    "textTokens": 31,
+    "reasoningTokens": 30
+  },
+  "totalTokens": 2709,
+  "raw": {
+    "prompt_tokens": 2648,
+    "completion_tokens": 61,
+    "total_tokens": 2709,
+    "completion_tokens_details": {
+      "reasoning_tokens": 30
+    }
+  },
+  "reasoningTokens": 30,
+  "effectiveInputTokens": 2648,
+  "cachedTokens": 0,
+  "raw_prompt": 2648
+}
+>>> Turn 2 Tool Calls Logged: ["search_web"]
+
+>>> Turn 3 Usage: {
+  "inputTokens": 2750,
+  "inputTokenDetails": {
+    "noCacheTokens": 2750
+  },
+  "outputTokens": 69,
+  "outputTokenDetails": {
+    "textTokens": 12,
+    "reasoningTokens": 57
+  },
+  "totalTokens": 2819,
+  "raw": {
+    "prompt_tokens": 2750,
+    "completion_tokens": 69,
+    "total_tokens": 2819,
+    "prompt_tokens_details": {
+      "cached_tokens": 2560
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 57
+    }
+  },
+  "reasoningTokens": 57,
+  "effectiveInputTokens": 5310,
+  "cachedTokens": 2560,
+  "raw_prompt": 2750
+}
+>>> Turn 3 Tool Calls Logged: ["get_weather_summary"]
+
+>>> Turn 4 Usage: {
+  "inputTokens": 2842,
+  "inputTokenDetails": {
+    "noCacheTokens": 2842
+  },
+  "outputTokens": 37,
+  "outputTokenDetails": {
+    "textTokens": 31,
+    "reasoningTokens": 6
+  },
+  "totalTokens": 2879,
+  "raw": {
+    "prompt_tokens": 2842,
+    "completion_tokens": 37,
+    "total_tokens": 2879,
+    "prompt_tokens_details": {
+      "cached_tokens": 2304
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 6
+    }
+  },
+  "reasoningTokens": 6,
+  "effectiveInputTokens": 5146,
+  "cachedTokens": 2304,
+  "raw_prompt": 2842
+}
+>>> Turn 4 Tool Calls Logged: ["run_shell_command"]
+
+>>> Turn 5 Usage: {
+  "inputTokens": 2891,
+  "inputTokenDetails": {
+    "noCacheTokens": 2891
+  },
+  "outputTokens": 36,
+  "outputTokenDetails": {
+    "textTokens": 28,
+    "reasoningTokens": 8
+  },
+  "totalTokens": 2927,
+  "raw": {
+    "prompt_tokens": 2891,
+    "completion_tokens": 36,
+    "total_tokens": 2927,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 8
+    }
+  },
+  "reasoningTokens": 8,
+  "effectiveInputTokens": 4171,
+  "cachedTokens": 1280,
+  "raw_prompt": 2891
+}
+>>> Turn 5 Tool Calls Logged: ["write_file"]
+
+>>> Turn 6 Usage: {
+  "inputTokens": 2939,
+  "inputTokenDetails": {
+    "noCacheTokens": 2939
+  },
+  "outputTokens": 41,
+  "outputTokenDetails": {
+    "textTokens": 35,
+    "reasoningTokens": 6
+  },
+  "totalTokens": 2980,
+  "raw": {
+    "prompt_tokens": 2939,
+    "completion_tokens": 41,
+    "total_tokens": 2980,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 6
+    }
+  },
+  "reasoningTokens": 6,
+  "effectiveInputTokens": 4219,
+  "cachedTokens": 1280,
+  "raw_prompt": 2939
+}
+>>> Turn 6 Tool Calls Logged: ["create_todo"]
+
+>>> Turn 7 Usage: {
+  "inputTokens": 2998,
+  "inputTokenDetails": {
+    "noCacheTokens": 2998
+  },
+  "outputTokens": 51,
+  "outputTokenDetails": {
+    "textTokens": 32,
+    "reasoningTokens": 19
+  },
+  "totalTokens": 3049,
+  "raw": {
+    "prompt_tokens": 2998,
+    "completion_tokens": 51,
+    "total_tokens": 3049,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 19
+    }
+  },
+  "reasoningTokens": 19,
+  "effectiveInputTokens": 4278,
+  "cachedTokens": 1280,
+  "raw_prompt": 2998
+}
+>>> Turn 7 Tool Calls Logged: ["send_email"]
+
+>>> Turn 8 Usage: {
+  "inputTokens": 3061,
+  "inputTokenDetails": {
+    "noCacheTokens": 3061
+  },
+  "outputTokens": 129,
+  "outputTokenDetails": {
+    "textTokens": 129
+  },
+  "totalTokens": 3190,
+  "raw": {
+    "prompt_tokens": 3061,
+    "completion_tokens": 129,
+    "total_tokens": 3190,
+    "prompt_tokens_details": {
+      "cached_tokens": 2560
+    }
+  },
+  "effectiveInputTokens": 5621,
+  "cachedTokens": 2560,
+  "raw_prompt": 3061
+}
+>>> Turn 8 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "inputTokens": 25029,
+  "inputTokenDetails": {
+    "noCacheTokens": 25029
+  },
+  "outputTokens": 708,
+  "outputTokenDetails": {
+    "textTokens": 373,
+    "reasoningTokens": 335
+  },
+  "totalTokens": 25737,
+  "reasoningTokens": 335,
+  "effectiveInputTokens": 37573,
+  "totalCachedTokens": 12544
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+
+80 tools
+
+tool_call {
+  type: "search_web",
+  args: {
+    num_results: 5,
+    query: "Latest TypeScript version",
+  },
+}
+tool_call {
+  type: "get_weather_summary",
+  args: {
+    unit: "celsius",
+    city: "San Francisco",
+  },
+}
+tool_call {
+  type: "run_shell_command",
+  args: {
+    command: "echo diagnostic complete",
+    working_dir: "/tmp",
+  },
+}
+tool_call {
+  type: "write_file",
+  args: {
+    path: "/tmp/log.txt",
+    content: "diagnostic complete",
+  },
+}
+tool_call {
+  type: "create_todo",
+  args: {
+    due_date: "2024-05-30",
+    priority: "high",
+    title: "System Diagnostic Complete",
+  },
+}
+tool_call {
+  type: "send_email",
+  args: {
+    subject: "Diagnostic Logs",
+    to: "admin@example.com",
+    body: "diagnostic complete",
+  },
+}
+text {
+  text: "All steps completed successfully. The TypeScript version was looked up, the weather summary retrieved, the diagnostic command executed and logged, the to‑do created, and the email sent.",
+}
+{
+  "aggregate": {
+    "prompt_tokens": 7153,
+    "completion_tokens": 781,
+    "total_tokens": 7934
+  },
+  "turns": [
+    {
+      "turn_index": 0,
+      "usage": {
+        "prompt_tokens": 2196,
+        "completion_tokens": 221,
+        "total_tokens": 2417
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    },
+    {
+      "turn_index": 1,
+      "usage": {
+        "prompt_tokens": 2287,
+        "completion_tokens": 454,
+        "total_tokens": 2741
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    },
+    {
+      "turn_index": 2,
+      "usage": {
+        "prompt_tokens": 2670,
+        "completion_tokens": 106,
+        "total_tokens": 2776
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    }
+  ]
+}
+
+
+vercel -ai
+
+
+tarting Vercel AI SDK Tools-80 Benchmark (OpenAI Compatible Routing)...
+
+
+==================================
+--- Final Text Response ---
+All steps completed:
+
+- Latest TypeScript version searched.
+- Weather in San Francisco: Currently 22 °C and sunny.
+- Shell command executed, output captured.
+- Output written to **/tmp/log.txt**.
+- High‑priority to‑do created (ID: `todo_30btp2`) with due date 2024‑05‑30.
+- Email sent to **admin@example.com** with subject “Diagnostic Logs”.
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "inputTokens": 3180,
+  "inputTokenDetails": {
+    "noCacheTokens": 3180
+  },
+  "outputTokens": 238,
+  "outputTokenDetails": {
+    "textTokens": 38,
+    "reasoningTokens": 200
+  },
+  "totalTokens": 3418,
+  "raw": {
+    "prompt_tokens": 3180,
+    "completion_tokens": 238,
+    "total_tokens": 3418,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 200
+    }
+  },
+  "reasoningTokens": 200,
+  "effectiveInputTokens": 5228,
+  "cachedTokens": 2048,
+  "raw_prompt": 3180
+}
+>>> Turn 0 Tool Calls Logged: ["search_web"]
+
+>>> Turn 1 Usage: {
+  "inputTokens": 3447,
+  "inputTokenDetails": {
+    "noCacheTokens": 3447
+  },
+  "outputTokens": 89,
+  "outputTokenDetails": {
+    "textTokens": 28,
+    "reasoningTokens": 61
+  },
+  "totalTokens": 3536,
+  "raw": {
+    "prompt_tokens": 3447,
+    "completion_tokens": 89,
+    "total_tokens": 3536,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 61
+    }
+  },
+  "reasoningTokens": 61,
+  "effectiveInputTokens": 5495,
+  "cachedTokens": 2048,
+  "raw_prompt": 3447
+}
+>>> Turn 1 Tool Calls Logged: ["get_weather_summary"]
+
+>>> Turn 2 Usage: {
+  "inputTokens": 3555,
+  "inputTokenDetails": {
+    "noCacheTokens": 3555
+  },
+  "outputTokens": 39,
+  "outputTokenDetails": {
+    "textTokens": 31,
+    "reasoningTokens": 8
+  },
+  "totalTokens": 3594,
+  "raw": {
+    "prompt_tokens": 3555,
+    "completion_tokens": 39,
+    "total_tokens": 3594,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 8
+    }
+  },
+  "reasoningTokens": 8,
+  "effectiveInputTokens": 5603,
+  "cachedTokens": 2048,
+  "raw_prompt": 3555
+}
+>>> Turn 2 Tool Calls Logged: ["run_shell_command"]
+
+>>> Turn 3 Usage: {
+  "inputTokens": 3606,
+  "inputTokenDetails": {
+    "noCacheTokens": 3606
+  },
+  "outputTokens": 44,
+  "outputTokenDetails": {
+    "textTokens": 31,
+    "reasoningTokens": 13
+  },
+  "totalTokens": 3650,
+  "raw": {
+    "prompt_tokens": 3606,
+    "completion_tokens": 44,
+    "total_tokens": 3650,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 13
+    }
+  },
+  "reasoningTokens": 13,
+  "effectiveInputTokens": 5654,
+  "cachedTokens": 2048,
+  "raw_prompt": 3606
+}
+>>> Turn 3 Tool Calls Logged: ["write_file"]
+
+>>> Turn 4 Usage: {
+  "inputTokens": 3659,
+  "inputTokenDetails": {
+    "noCacheTokens": 3659
+  },
+  "outputTokens": 43,
+  "outputTokenDetails": {
+    "textTokens": 35,
+    "reasoningTokens": 8
+  },
+  "totalTokens": 3702,
+  "raw": {
+    "prompt_tokens": 3659,
+    "completion_tokens": 43,
+    "total_tokens": 3702,
+    "prompt_tokens_details": {
+      "cached_tokens": 3328
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 8
+    }
+  },
+  "reasoningTokens": 8,
+  "effectiveInputTokens": 6987,
+  "cachedTokens": 3328,
+  "raw_prompt": 3659
+}
+>>> Turn 4 Tool Calls Logged: ["create_todo"]
+
+>>> Turn 5 Usage: {
+  "inputTokens": 3720,
+  "inputTokenDetails": {
+    "noCacheTokens": 3720
+  },
+  "outputTokens": 42,
+  "outputTokenDetails": {
+    "textTokens": 35,
+    "reasoningTokens": 7
+  },
+  "totalTokens": 3762,
+  "raw": {
+    "prompt_tokens": 3720,
+    "completion_tokens": 42,
+    "total_tokens": 3762,
+    "completion_tokens_details": {
+      "reasoning_tokens": 7
+    }
+  },
+  "reasoningTokens": 7,
+  "effectiveInputTokens": 3720,
+  "cachedTokens": 0,
+  "raw_prompt": 3720
+}
+>>> Turn 5 Tool Calls Logged: ["send_email"]
+
+>>> Turn 6 Usage: {
+  "inputTokens": 3771,
+  "inputTokenDetails": {
+    "noCacheTokens": 3771
+  },
+  "outputTokens": 93,
+  "outputTokenDetails": {
+    "textTokens": 93
+  },
+  "totalTokens": 3864,
+  "raw": {
+    "prompt_tokens": 3771,
+    "completion_tokens": 93,
+    "total_tokens": 3864,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048
+    }
+  },
+  "effectiveInputTokens": 5819,
+  "cachedTokens": 2048,
+  "raw_prompt": 3771
+}
+>>> Turn 6 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "inputTokens": 24938,
+  "inputTokenDetails": {
+    "noCacheTokens": 24938
+  },
+  "outputTokens": 588,
+  "outputTokenDetails": {
+    "textTokens": 291,
+    "reasoningTokens": 297
+  },
+  "totalTokens": 25526,
+  "reasoningTokens": 297,
+  "effectiveInputTokens": 38506,
+  "totalCachedTokens": 13568
+}
+
+
+100 tools
+index
+tool_call {
+  type: "search_web",
+  args: {
+    num_results: 5,
+    query: "Latest TypeScript version",
+  },
+}
+tool_call {
+  type: "get_weather_summary",
+  args: {
+    unit: "celsius",
+    city: "San Francisco",
+  },
+}
+tool_call {
+  type: "run_shell_command",
+  args: {
+    command: "echo diagnostic complete",
+    working_dir: "/tmp",
+  },
+}
+tool_call {
+  type: "write_file",
+  args: {
+    content: "diagnostic complete",
+    path: "/tmp/log.txt",
+  },
+}
+tool_call {
+  type: "create_todo",
+  args: {
+    due_date: "2024-05-30",
+    title: "System Diagnostic Complete",
+    priority: "high",
+  },
+PS C:\Users\babyface\Desktop\auwgent\Auwgent\manual-testing\typescript\01-test-simple> bun run
+
+
+
+
+
+index
+tool_call {
+  type: "search_web",
+  args: {
+    query: "Latest TypeScript version",
+    num_results: 5,
+  },
+}
+tool_call {
+  type: "get_weather_summary",
+  args: {
+    unit: "celsius",
+    city: "San Francisco",
+  },
+}
+tool_call {
+  type: "run_shell_command",
+  args: {
+    command: "echo diagnostic complete",
+    working_dir: "/tmp",
+  },
+}
+tool_call {
+  type: "write_file",
+  args: {
+    path: "/tmp/log.txt",
+    content: "diagnostic complete",
+  },
+}
+tool_call {
+  type: "create_todo",
+  args: {
+    priority: "high",
+    due_date: "2024-05-30",
+    title: "System Diagnostic Complete",
+  },
+}
+tool_call {
+  type: "send_email",
+  args: {
+    body: "Diagnostic complete",
+    subject: "Diagnostic Logs",
+    to: "admin@example.com",
+  },
+}
+text {
+  text: "All steps completed: TypeScript version info retrieved, weather summary obtained, diagnostic command run and logged, high‑priority to‑do created, and email sent to admin@example.com.",
+}
+{
+  "aggregate": {
+    "prompt_tokens": 8582,
+    "completion_tokens": 1114,
+    "total_tokens": 9696
+  },
+  "turns": [
+    {
+      "turn_index": 0,
+      "usage": {
+        "prompt_tokens": 2689,
+        "completion_tokens": 384,
+        "total_tokens": 3073
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    },
+    {
+      "turn_index": 1,
+      "usage": {
+        "prompt_tokens": 2780,
+        "completion_tokens": 636,
+        "total_tokens": 3416
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    },
+    {
+      "turn_index": 2,
+      "usage": {
+        "prompt_tokens": 3113,
+        "completion_tokens": 94,
+        "total_tokens": 3207
+      },
+      "finish_reason": "stop",
+      "model": "openai/gpt-oss-120b"
+    }
+  ]
+}
+
+
+vercel:
+
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json> bun vercel-ai/tool-100.ts
+Starting Vercel AI SDK Tools-100 Benchmark (OpenAI Compatible Routing)...
+
+
+==================================
+--- Final Text Response ---
+The diagnostic workflow is complete:
+
+- **TypeScript version search result:** [{"title":"Latest TypeScript version Overview","url":"https://example.com/search?q=Latest%20TypeScript%20version"}]
+- **San Francisco weather (°C):** Currently 22 degrees and sunny.
+- **Shell command output:** `diagnostic complete` (written to `/tmp/log.txt`).
+- **Created to‑do (ID: todo_5eub45):** “System Diagnostic Complete”, high priority, due 2024‑05‑30.
+- **Email sent** to admin@example.com with subject “Diagnostic Logs” and body “diagnostic complete”.
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "inputTokens": 3957,
+  "inputTokenDetails": {
+    "noCacheTokens": 3957
+  },
+  "outputTokens": 232,
+  "outputTokenDetails": {
+    "textTokens": 38,
+    "reasoningTokens": 194
+  },
+  "totalTokens": 4189,
+  "raw": {
+    "prompt_tokens": 3957,
+    "completion_tokens": 232,
+    "total_tokens": 4189,
+    "prompt_tokens_details": {
+      "cached_tokens": 2816
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 194
+    }
+  },
+  "reasoningTokens": 194,
+  "effectiveInputTokens": 6773,
+  "cachedTokens": 2816,
+  "raw_prompt": 3957
+}
+>>> Turn 0 Tool Calls Logged: ["search_web"]
+
+>>> Turn 1 Usage: {
+  "inputTokens": 4218,
+  "inputTokenDetails": {
+    "noCacheTokens": 4218
+  },
+  "outputTokens": 89,
+  "outputTokenDetails": {
+    "textTokens": 28,
+    "reasoningTokens": 61
+  },
+  "totalTokens": 4307,
+  "raw": {
+    "prompt_tokens": 4218,
+    "completion_tokens": 89,
+    "total_tokens": 4307,
+    "prompt_tokens_details": {
+      "cached_tokens": 4096
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 61
+    }
+  },
+  "reasoningTokens": 61,
+  "effectiveInputTokens": 8314,
+  "cachedTokens": 4096,
+  "raw_prompt": 4218
+}
+>>> Turn 1 Tool Calls Logged: ["get_weather_summary"]
+
+>>> Turn 2 Usage: {
+  "inputTokens": 4326,
+  "inputTokenDetails": {
+    "noCacheTokens": 4326
+  },
+  "outputTokens": 37,
+  "outputTokenDetails": {
+    "textTokens": 28,
+    "reasoningTokens": 9
+  },
+  "totalTokens": 4363,
+  "raw": {
+    "prompt_tokens": 4326,
+    "completion_tokens": 37,
+    "total_tokens": 4363,
+    "prompt_tokens_details": {
+      "cached_tokens": 2816
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 9
+    }
+  },
+  "reasoningTokens": 9,
+  "effectiveInputTokens": 7142,
+  "cachedTokens": 2816,
+  "raw_prompt": 4326
+}
+>>> Turn 2 Tool Calls Logged: ["run_shell_command"]
+
+>>> Turn 3 Usage: {
+  "inputTokens": 4378,
+  "inputTokenDetails": {
+    "noCacheTokens": 4378
+  },
+  "outputTokens": 68,
+  "outputTokenDetails": {
+    "textTokens": 31,
+    "reasoningTokens": 37
+  },
+  "totalTokens": 4446,
+  "raw": {
+    "prompt_tokens": 4378,
+    "completion_tokens": 68,
+    "total_tokens": 4446,
+    "prompt_tokens_details": {
+      "cached_tokens": 2816
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 37
+    }
+  },
+  "reasoningTokens": 37,
+  "effectiveInputTokens": 7194,
+  "cachedTokens": 2816,
+  "raw_prompt": 4378
+}
+>>> Turn 3 Tool Calls Logged: ["write_file"]
+
+>>> Turn 4 Usage: {
+  "inputTokens": 4455,
+  "inputTokenDetails": {
+    "noCacheTokens": 4455
+  },
+  "outputTokens": 44,
+  "outputTokenDetails": {
+    "textTokens": 35,
+    "reasoningTokens": 9
+  },
+  "totalTokens": 4499,
+  "raw": {
+    "prompt_tokens": 4455,
+    "completion_tokens": 44,
+    "total_tokens": 4499,
+    "prompt_tokens_details": {
+      "cached_tokens": 4096
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 9
+    }
+  },
+  "reasoningTokens": 9,
+  "effectiveInputTokens": 8551,
+  "cachedTokens": 4096,
+  "raw_prompt": 4455
+}
+>>> Turn 4 Tool Calls Logged: ["create_todo"]
+
+>>> Turn 5 Usage: {
+  "inputTokens": 4517,
+  "inputTokenDetails": {
+    "noCacheTokens": 4517
+  },
+  "outputTokens": 43,
+  "outputTokenDetails": {
+    "textTokens": 35,
+    "reasoningTokens": 8
+  },
+  "totalTokens": 4560,
+  "raw": {
+    "prompt_tokens": 4517,
+    "completion_tokens": 43,
+    "total_tokens": 4560,
+    "prompt_tokens_details": {
+      "cached_tokens": 2816
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 8
+    }
+  },
+  "reasoningTokens": 8,
+  "effectiveInputTokens": 7333,
+  "cachedTokens": 2816,
+  "raw_prompt": 4517
+}
+>>> Turn 5 Tool Calls Logged: ["send_email"]
+
+>>> Turn 6 Usage: {
+  "inputTokens": 4569,
+  "inputTokenDetails": {
+    "noCacheTokens": 4569
+  },
+  "outputTokens": 144,
+  "outputTokenDetails": {
+    "textTokens": 144
+  },
+  "totalTokens": 4713,
+  "raw": {
+    "prompt_tokens": 4569,
+    "completion_tokens": 144,
+    "total_tokens": 4713,
+    "prompt_tokens_details": {
+      "cached_tokens": 4352
+    }
+  },
+  "effectiveInputTokens": 8921,
+  "cachedTokens": 4352,
+  "raw_prompt": 4569
+}
+>>> Turn 6 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "inputTokens": 30420,
+  "inputTokenDetails": {
+    "noCacheTokens": 30420
+  },
+  "outputTokens": 657,
+  "outputTokenDetails": {
+    "textTokens": 339,
+    "reasoningTokens": 318
+  },
+  "totalTokens": 31077,
+  "reasoningTokens": 318,
+  "effectiveInputTokens": 54228,
+  "totalCachedTokens": 23808
+}

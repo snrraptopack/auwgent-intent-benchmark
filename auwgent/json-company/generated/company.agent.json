@@ -1,0 +1,144 @@
+{
+  "name": "TestCompany",
+  "modelConfig": [
+    {
+      "defaultConfig": {
+        "model": {
+          "type": "custom",
+          "id": "groq-api",
+          "url": "https://api.groq.com/openai/v1",
+          "modelName": "llama-3.3-70b-versatile",
+          "config": null
+        },
+        "embedding": null,
+        "prompt": {
+          "value": "Be polite and concise",
+          "type": "literal"
+        }
+      },
+      "namedConfig": []
+    }
+  ],
+  "input": null,
+  "output": {
+    "company": {
+      "type": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "optional": false
+          },
+          "departments": {
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dept_name": {
+                    "type": "string",
+                    "optional": false
+                  },
+                  "employees": {
+                    "type": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "optional": false
+                          },
+                          "role": {
+                            "type": "string",
+                            "optional": false
+                          },
+                          "salary": {
+                            "type": "number",
+                            "optional": true
+                          }
+                        }
+                      }
+                    },
+                    "optional": false
+                  }
+                }
+              }
+            },
+            "optional": false
+          }
+        }
+      },
+      "optional": false
+    }
+  },
+  "context": null,
+  "tools": [],
+  "workflows": [],
+  "helpers": [],
+  "components": [],
+  "types": {
+    "Company": {
+      "isOutput": false,
+      "properties": {
+        "company": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "optional": false
+              },
+              "departments": {
+                "type": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "dept_name": {
+                        "type": "string",
+                        "optional": false
+                      },
+                      "employees": {
+                        "type": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "optional": false
+                              },
+                              "role": {
+                                "type": "string",
+                                "optional": false
+                              },
+                              "salary": {
+                                "type": "number",
+                                "optional": true
+                              }
+                            }
+                          }
+                        },
+                        "optional": false
+                      }
+                    }
+                  }
+                },
+                "optional": false
+              }
+            }
+          },
+          "optional": false,
+          "description": null
+        }
+      },
+      "@examples": []
+    }
+  },
+  "helperToolGrants": null,
+  "helperHandoff": null,
+  "tests": [],
+  "lifecycle": null,
+  "customIntents": null
+}

@@ -1,0 +1,27 @@
+
+type Booking {
+    request_type: "booking"
+    payload: {
+        booking_id: string
+        date: string @desc "ISO date"
+        participants?: string[]
+    }
+}
+
+type Support {
+    request_type: "support"
+    payload: {
+        ticket_id: string
+        issue_type: "billing" | "technical" | "general"
+        priority?: "low" | "medium" | "high"
+    }
+}
+
+
+agent TestUser{
+    default config{
+        model: custom("groq-api","https://api.groq.com/openai/v1","llama-3.3-70b-versatile")
+        prompt: """Your output must match [schema:type] ... [/schema]"""
+    }
+    output:Booking | Support
+}

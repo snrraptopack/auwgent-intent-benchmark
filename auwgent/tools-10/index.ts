@@ -1,0 +1,28 @@
+import { auwgent, type AuwgentConfig } from "./generated/tools.agent.types"
+import {create_todo,read_todo} from "../../tools"
+
+const config: AuwgentConfig = {
+    apiKeys: {
+        groq_apiApiKey: Bun.env.GROQ_API_KEY || ""
+  },
+  tools: {
+    'create_todo': create_todo,
+    'read_todo':read_todo
+  }
+}
+const agent = auwgent(config)
+
+console.log(agent.generatePrompt())
+
+agent.onIntent((intent, value, name) => {
+    if (intent === "response_text") {
+        console.log("text", value)
+    }
+    if (intent === "tool_call") {
+        console.log("tool_call", value)
+    }
+})
+
+const session = await agent.run(`Create a new high-priority to-do called 'Fix the benchmark script' due on '2024-05-30'. Once it is created, use the ID you received to read the to-do back to me to confirm it was saved properly.`)
+console.log(JSON.stringify(agent.getMetadata(),null,2))
+console.log(JSON.stringify(session.turns,null,2))

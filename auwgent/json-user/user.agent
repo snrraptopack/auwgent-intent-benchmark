@@ -1,0 +1,17 @@
+
+
+type Usr{
+    name: string,
+    age: number
+    country: string
+    is_student?: boolean
+ }
+
+
+agent TestUser{
+    default config{
+        model: custom("groq-api","https://api.groq.com/openai/v1","llama-3.3-70b-versatile")
+        prompt: """Your output must match [schema:type] ... [/schema]"""
+    }
+    output:Usr
+}
