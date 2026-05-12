@@ -1,4 +1,4 @@
-source: "./auwgent/tools-100"
-output: "./auwgent/tools-100/generated"
+source: "./auwgent/tools-2"
+output: "./auwgent/tools-2/generated"
 target:
   - ts

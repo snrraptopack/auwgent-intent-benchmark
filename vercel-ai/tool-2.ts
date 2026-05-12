@@ -7,7 +7,7 @@ const groq = createGroq({
 });
 
 async function runTest() {
-    console.log("Starting Vercel AI SDK Tools-2 Benchmark (OpenAI Compatible Routing)...\n");
+    console.log("Starting Vercel AI SDK Benchmark...\n");
 
     const systemPrompt = "Be polite and concise. When you call a tool, it will return a result. Wait to receive the result before calling the next tool.";
 
@@ -24,30 +24,42 @@ async function runTest() {
     console.log(result.text);
 
     console.log("\n--- Step Breakdown ---");
-    result.steps.forEach((step, index) => {
-        const cachedTokens = (step.usage as any).raw?.prompt_tokens_details?.cached_tokens ?? 0;
-        const effectiveInput = step.usage.inputTokens + cachedTokens;
+    let totalCachedTokens = 0;
+    let totalReasoningTokens = 0;
+
+  result.steps.forEach((step, index) => {
+        // Safely extract cached and reasoning tokens from the raw response
+        const cachedTokens = (step.usage as any).raw?.input_tokens_details?.cached_tokens ?? 0;
+        const reasoningTokens = (step.usage as any).raw?.output_tokens_details?.reasoning_tokens ?? 0;
+
+        totalCachedTokens += cachedTokens;
+        totalReasoningTokens += reasoningTokens;
 
         console.log(`\n>>> Turn ${index} Usage:`, JSON.stringify({
-            ...step.usage,
-            effectiveInputTokens: effectiveInput,
-            cachedTokens,
+            prompt_tokens: step.usage.inputTokens,
+            completion_tokens: step.usage.outputTokens,
+            total_tokens: step.usage.totalTokens,
+            cached_tokens: cachedTokens,
+            reasoning_tokens: reasoningTokens
         }, null, 2));
+
         console.log(`>>> Turn ${index} Tool Calls Logged:`, step.toolCalls.length > 0
-            ? JSON.stringify(step.toolCalls.map(t => t.toolName))
+            ? JSON.stringify(step.toolCalls.map(t => ({
+                name: t.toolName,
+                args: t.args
+              })), null, 2)
             : "None (Stop)"
         );
-    });
 
-    const totalCached = result.steps.reduce((sum, step) => {
-        return sum + ((step.usage as any).raw?.prompt_tokens_details?.cached_tokens ?? 0);
-    }, 0);
+    });
 
     console.log("\n--- Aggregate Usage ---");
     console.log(JSON.stringify({
-        ...result.totalUsage,
-        effectiveInputTokens: result.totalUsage.inputTokens + totalCached,
-        totalCachedTokens: totalCached,
+        prompt_tokens: result.totalUsage.inputTokens,
+        completion_tokens: result.totalUsage.outputTokens,
+        total_tokens: result.totalUsage.totalTokens,
+        total_cached_tokens: totalCachedTokens,
+        total_reasoning_tokens: totalReasoningTokens
     }, null, 2));
 }
 

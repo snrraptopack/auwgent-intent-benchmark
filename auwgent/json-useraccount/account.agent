@@ -14,7 +14,7 @@ type UserAccount{
 
 agent TestAccount{
     default config{
-        model: custom("groq-api","https://api.groq.com/openai/v1","llama-3.3-70b-versatile")
+        model: groq("openai/gpt-oss-120b")
         prompt: "Be polite and concise"
     }
     output:UserAccount

@@ -4,11 +4,17 @@
     {
       "defaultConfig": {
         "model": {
-          "type": "custom",
-          "id": "groq-api",
-          "url": "https://api.groq.com/openai/v1",
-          "modelName": "llama-3.3-70b-versatile",
-          "config": null
+          "type": "groq",
+          "modelName": "openai/gpt-oss-120b",
+          "config": {
+            "type": "object",
+            "value": {
+              "temperature": {
+                "type": "literal",
+                "value": 0.0
+              }
+            }
+          }
         },
         "embedding": null,
         "prompt": {
@@ -16,7 +22,7 @@
           "value": [
             {
               "type": "literal",
-              "value": "Your output must satisfy this shape @schema(output)"
+              "value": "Your output must match [schema:type] ... [/schema]"
             }
           ]
         }
@@ -57,11 +63,6 @@
           "optional": false,
           "description": null
         },
-        "is_student": {
-          "type": "boolean",
-          "optional": true,
-          "description": null
-        },
         "name": {
           "type": "string",
           "optional": false,
@@ -70,6 +71,11 @@
         "country": {
           "type": "string",
           "optional": false,
+          "description": null
+        },
+        "is_student": {
+          "type": "boolean",
+          "optional": true,
           "description": null
         }
       },

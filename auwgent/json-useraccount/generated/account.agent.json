@@ -1,13 +1,11 @@
 {
-  "name": "TestUser",
+  "name": "TestAccount",
   "modelConfig": [
     {
       "defaultConfig": {
         "model": {
-          "type": "custom",
-          "id": "groq-api",
-          "url": "https://api.groq.com/openai/v1",
-          "modelName": "llama-3.3-70b-versatile",
+          "type": "groq",
+          "modelName": "openai/gpt-oss-120b",
           "config": null
         },
         "embedding": null,
@@ -21,21 +19,44 @@
   ],
   "input": null,
   "output": {
-    "name": {
-      "type": "string",
+    "person": {
+      "type": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "optional": false
+          },
+          "email": {
+            "type": "string",
+            "optional": false
+          }
+        }
+      },
       "optional": false
     },
-    "age": {
-      "type": "number",
+    "account": {
+      "type": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "type": {
+              "type": "union",
+              "options": [
+                "free",
+                "pro",
+                "enterprise"
+              ]
+            },
+            "optional": false
+          },
+          "active": {
+            "type": "boolean",
+            "optional": false
+          }
+        }
+      },
       "optional": false
-    },
-    "country": {
-      "type": "string",
-      "optional": false
-    },
-    "is_student": {
-      "type": "boolean",
-      "optional": true
     }
   },
   "context": null,
@@ -47,23 +68,44 @@
     "UserAccount": {
       "isOutput": false,
       "properties": {
-        "name": {
-          "type": "string",
+        "account": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "plan": {
+                "type": {
+                  "type": "union",
+                  "options": [
+                    "free",
+                    "pro",
+                    "enterprise"
+                  ]
+                },
+                "optional": false
+              },
+              "active": {
+                "type": "boolean",
+                "optional": false
+              }
+            }
+          },
           "optional": false,
           "description": null
         },
-        "age": {
-          "type": "number",
-          "optional": false,
-          "description": null
-        },
-        "is_student": {
-          "type": "boolean",
-          "optional": true,
-          "description": null
-        },
-        "country": {
-          "type": "string",
+        "person": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "optional": false
+              },
+              "email": {
+                "type": "string",
+                "optional": false
+              }
+            }
+          },
           "optional": false,
           "description": null
         }

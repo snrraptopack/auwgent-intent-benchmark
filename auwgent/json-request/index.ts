@@ -2,12 +2,10 @@ import { auwgent, type AuwgentConfig } from "./generated/request.agent.types"
 
 const config: AuwgentConfig = {
     apiKeys: {
-        groq_apiApiKey: Bun.env.GROQ_API_KEY || ""
+        groqApiKey: Bun.env.GROQ_API_KEY || ""
     }
 }
 const agent = auwgent(config)
-
-console.log(agent.generatePrompt())
 
 agent.onIntent((intent, value, name) => {
     if (intent === "response_text") {
@@ -19,4 +17,6 @@ agent.onIntent((intent, value, name) => {
   }
 })
 
-const session = await agent.run("Generate a user profile for Hiroshi, a 21-year-old student from Japan")
+const session = await agent.run(" I have a billing issue. My ticket ID is 'TIC-999'. Set the priority to medium.")
+
+console.log(JSON.stringify(agent.getMetadata(),null,2))

@@ -2,12 +2,10 @@ import { auwgent, type AuwgentConfig } from "./generated/account.agent.types.ts"
 
 const config: AuwgentConfig = {
     apiKeys: {
-        groq_apiApiKey: Bun.env.GROQ_API_KEY || ""
+        groqApiKey: Bun.env.GROQ_API_KEY || ""
     }
 }
 const agent = auwgent(config)
-
-console.log(agent.generatePrompt())
 
 agent.onIntent((intent, value, name) => {
     if (intent === "response_text") {
@@ -19,3 +17,4 @@ agent.onIntent((intent, value, name) => {
 })
 
 const session = await agent.run(`Initialize a new Pro account for user 'usr_777' with the email 'shawn@example.com '. The account status should be set to active.`)
+console.log(JSON.stringify(agent.getMetadata(),null,2))

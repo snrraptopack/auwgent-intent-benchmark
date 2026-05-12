@@ -7,16 +7,17 @@ const groq = createGroq({
 });
 
 async function runTest() {
-    console.log("Starting Vercel AI SDK Tools-100 Benchmark (OpenAI Compatible Routing)...\n");
+    console.log("Starting Vercel AI SDK Benchmark...\n");
 
-    const systemPrompt = "Be polite and concise. When you call a tool, it will return a result. Wait to receive the result before calling the next tool.";
+    const systemPrompt = "Be polite and concise,when you call a tool,the result will be sent to you when they are in dont come up with your own values";
 
     const result = await generateText({
-        model: groq("openai/gpt-oss-120b"),
-        system: systemPrompt,
-        prompt: "I need you to execute a system diagnostic workflow. First, use search_web to look up 'Latest TypeScript version'. Second, get the weather summary for 'San Francisco' in celsius. Third, run a shell command saying 'echo diagnostic complete' in '/tmp'. Fourth, write that exact shell command output to a file located at '/tmp/log.txt'. Fifth, create a high-priority to-do due on '2024-05-30' titled 'System Diagnostic Complete'. Finally, send an email to 'admin@example.com' with the subject 'Diagnostic Logs' and the body matching the completed status.",
-        tools: tools100,
-        stopWhen: stepCountIs(10),
+      model: groq("llama-3.3-70b-versatile"),
+      system: systemPrompt,
+      prompt: "Create a new high-priority to-do called 'Fix the benchmark script' due on '2024-05-30'. Once it is created, use the ID you received to read the to-do back to me to confirm it was saved properly.",
+      tools: tools100,
+      stopWhen: stepCountIs(5),
+      temperature:0
     });
 
     console.log("\n==================================");
@@ -24,31 +25,51 @@ async function runTest() {
     console.log(result.text);
 
     console.log("\n--- Step Breakdown ---");
+    let totalCachedTokens = 0;
+    let totalReasoningTokens = 0;
+
     result.steps.forEach((step, index) => {
-        const cachedTokens = (step.usage as any).raw?.prompt_tokens_details?.cached_tokens ?? 0;
-        const effectiveInput = step.usage.inputTokens + cachedTokens;
+        // Look for cached tokens in Vercel's standard fields first, then fallback to raw
+        const cachedTokens =
+            (step.usage as any).cachedInputTokens ??
+            (step.usage as any).inputTokenDetails?.cacheReadTokens ??
+            (step.usage as any).raw?.input_tokens_details?.cached_tokens ?? 0;
+
+        // Look for reasoning tokens in Vercel's standard fields first, then fallback to raw
+        const reasoningTokens =
+            (step.usage as any).reasoningTokens ??
+            (step.usage as any).outputTokenDetails?.reasoningTokens ??
+            (step.usage as any).raw?.output_tokens_details?.reasoning_tokens ?? 0;
+
+        totalCachedTokens += cachedTokens;
+        totalReasoningTokens += reasoningTokens;
 
         console.log(`\n>>> Turn ${index} Usage:`, JSON.stringify({
-            ...step.usage,
-            effectiveInputTokens: effectiveInput,
-            cachedTokens,
-            raw_prompt: (step.usage as any).raw?.prompt_tokens
+            prompt_tokens: step.usage.inputTokens,
+            completion_tokens: step.usage.outputTokens,
+            total_tokens: step.usage.totalTokens,
+            cached_tokens: cachedTokens,
+            reasoning_tokens: reasoningTokens
         }, null, 2));
+
         console.log(`>>> Turn ${index} Tool Calls Logged:`, step.toolCalls.length > 0
-            ? JSON.stringify(step.toolCalls.map(t => t.toolName))
+            ? JSON.stringify(step.toolCalls.map(t => ({
+                name: t.toolName,
+                args: t.args
+              })), null, 2)
             : "None (Stop)"
         );
-    });
 
-    const totalCached = result.steps.reduce((sum, step) => {
-        return sum + ((step.usage as any).raw?.prompt_tokens_details?.cached_tokens ?? 0);
-    }, 0);
+    });
 
     console.log("\n--- Aggregate Usage ---");
     console.log(JSON.stringify({
-        ...result.totalUsage,
-        effectiveInputTokens: result.totalUsage.inputTokens + totalCached,
-        totalCachedTokens: totalCached,
+        prompt_tokens: result.totalUsage.inputTokens,
+        completion_tokens: result.totalUsage.outputTokens,
+        total_tokens: result.totalUsage.totalTokens,
+        // For the aggregate, use the top-level totalUsage reasoning/cached if available
+        total_cached_tokens: (result.totalUsage as any).cachedInputTokens ?? totalCachedTokens,
+        total_reasoning_tokens: (result.totalUsage as any).reasoningTokens ?? totalReasoningTokens
     }, null, 2));
 }
 

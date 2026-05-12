@@ -4,11 +4,17 @@
     {
       "defaultConfig": {
         "model": {
-          "type": "custom",
-          "id": "groq-api",
-          "url": "https://api.groq.com/openai/v1",
-          "modelName": "llama-3.3-70b-versatile",
-          "config": null
+          "type": "groq",
+          "modelName": "qwen/qwen3-32b",
+          "config": {
+            "type": "object",
+            "value": {
+              "temperature": {
+                "type": "literal",
+                "value": 0.0
+              }
+            }
+          }
         },
         "embedding": null,
         "prompt": {
@@ -115,6 +121,57 @@
   "helpers": [],
   "components": [],
   "types": {
+    "Support": {
+      "isOutput": false,
+      "properties": {
+        "payload": {
+          "type": {
+            "type": "object",
+            "properties": {
+              "ticket_id": {
+                "type": "string",
+                "optional": false
+              },
+              "issue_type": {
+                "type": {
+                  "type": "union",
+                  "options": [
+                    "billing",
+                    "technical",
+                    "general"
+                  ]
+                },
+                "optional": false
+              },
+              "priority": {
+                "type": {
+                  "type": "union",
+                  "options": [
+                    "low",
+                    "medium",
+                    "high"
+                  ]
+                },
+                "optional": true
+              }
+            }
+          },
+          "optional": false,
+          "description": null
+        },
+        "request_type": {
+          "type": {
+            "type": "union",
+            "options": [
+              "support"
+            ]
+          },
+          "optional": false,
+          "description": null
+        }
+      },
+      "@examples": []
+    },
     "Booking": {
       "isOutput": false,
       "properties": {
@@ -145,57 +202,6 @@
                 "type": {
                   "type": "array",
                   "items": "string"
-                },
-                "optional": true
-              }
-            }
-          },
-          "optional": false,
-          "description": null
-        }
-      },
-      "@examples": []
-    },
-    "Support": {
-      "isOutput": false,
-      "properties": {
-        "request_type": {
-          "type": {
-            "type": "union",
-            "options": [
-              "support"
-            ]
-          },
-          "optional": false,
-          "description": null
-        },
-        "payload": {
-          "type": {
-            "type": "object",
-            "properties": {
-              "ticket_id": {
-                "type": "string",
-                "optional": false
-              },
-              "issue_type": {
-                "type": {
-                  "type": "union",
-                  "options": [
-                    "billing",
-                    "technical",
-                    "general"
-                  ]
-                },
-                "optional": false
-              },
-              "priority": {
-                "type": {
-                  "type": "union",
-                  "options": [
-                    "low",
-                    "medium",
-                    "high"
-                  ]
                 },
                 "optional": true
               }

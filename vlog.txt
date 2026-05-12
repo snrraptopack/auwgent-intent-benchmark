@@ -1,0 +1,506 @@
+bun run vercel-ai/tool-2
+Starting Vercel AI SDK Benchmark...
+
+model:qween
+
+==================================
+--- Final Text Response ---
+The to-do "Fix the benchmark script" has been created successfully. Here's the confirmed data:
+
+- **Title**: Fix the benchmark script
+- **Due Date**: 2024-05-30
+- **Priority**: High
+- **Status**: Not completed
+
+Let me know if you'd like to modify or add anything!
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "prompt_tokens": 386,
+  "completion_tokens": 360,
+  "total_tokens": 746,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 0 Tool Calls Logged: ["create_todo"]
+
+>>> Turn 1 Usage: {
+  "prompt_tokens": 764,
+  "completion_tokens": 235,
+  "total_tokens": 999,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 1 Tool Calls Logged: ["read_todo"]
+
+>>> Turn 2 Usage: {
+  "prompt_tokens": 1041,
+  "completion_tokens": 259,
+  "total_tokens": 1300,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 2 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "prompt_tokens": 2191,
+  "completion_tokens": 854,
+  "total_tokens": 3045,
+  "total_cached_tokens": 0,
+  "total_reasoning_tokens": 0
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+
+*********GTP tool 2************
+ bun run vercel-ai/tool-2
+Starting Vercel AI SDK Benchmark...
+
+
+==================================
+--- Final Text Response ---
+Here’s the to‑do you created:
+
+- **ID:** `todo_t8zvep`
+- **Title:** Fix the benchmark script
+- **Due date:** 2024‑05‑30
+- **Priority:** high
+- **Status:** not done
+
+It’s saved correctly. Let me know if you’d like to modify or add anything else!
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "prompt_tokens": 267,
+  "completion_tokens": 90,
+  "total_tokens": 357,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 0 Tool Calls Logged: ["create_todo"]
+
+>>> Turn 1 Usage: {
+  "prompt_tokens": 360,
+  "completion_tokens": 30,
+  "total_tokens": 390,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 1 Tool Calls Logged: ["read_todo"]
+
+>>> Turn 2 Usage: {
+  "prompt_tokens": 428,
+  "completion_tokens": 79,
+  "total_tokens": 507,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 2 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "prompt_tokens": 1055,
+  "completion_tokens": 199,
+  "total_tokens": 1254,
+  "total_cached_tokens": 0,
+  "total_reasoning_tokens": 0
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+
+bun run vercel-ai/tool-5
+Starting Vercel AI SDK Benchmark...
+
+
+==================================
+--- Final Text Response ---
+Your high-priority to-do 'Fix the benchmark script' due on '2024-05-30' was created and saved properly with the id 'todo_hovy9e'. Its details are:
+- Title: Fix the benchmark script
+- Due Date: 2024-05-30
+- Priority: high
+- Status: Not done
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "prompt_tokens": 651,
+  "completion_tokens": 52,
+  "total_tokens": 703,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 0 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  },
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 1 Usage: {
+  "prompt_tokens": 724,
+  "completion_tokens": 52,
+  "total_tokens": 776,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 1 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  }
+]
+
+>>> Turn 2 Usage: {
+  "prompt_tokens": 769,
+  "completion_tokens": 17,
+  "total_tokens": 786,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 2 Tool Calls Logged: [
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 3 Usage: {
+  "prompt_tokens": 822,
+  "completion_tokens": 73,
+  "total_tokens": 895,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 3 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "prompt_tokens": 2966,
+  "completion_tokens": 194,
+  "total_tokens": 3160,
+  "total_cached_tokens": 0,
+  "total_reasoning_tokens": 0
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json> bun run vercel-ai/tool-5
+Starting Vercel AI SDK Benchmark...
+
+
+==================================
+--- Final Text Response ---
+Here’s the to‑do you created:
+
+- **ID:** `todo_r4elix`
+- **Title:** Fix the benchmark script
+- **Due date:** 2024‑05‑30
+- **Priority:** high
+- **Completed:** No
+
+It’s saved and ready for you. Let me know if you need anything else!
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "prompt_tokens": 358,
+  "completion_tokens": 71,
+  "total_tokens": 429,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 0 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  }
+]
+
+>>> Turn 1 Usage: {
+  "prompt_tokens": 431,
+  "completion_tokens": 30,
+  "total_tokens": 461,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 1 Tool Calls Logged: [
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 2 Usage: {
+  "prompt_tokens": 499,
+  "completion_tokens": 76,
+  "total_tokens": 575,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 2 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "prompt_tokens": 1288,
+  "completion_tokens": 177,
+  "total_tokens": 1465,
+  "total_cached_tokens": 0,
+  "total_reasoning_tokens": 0
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+bun run vercel-ai/tool-40
+Starting Vercel AI SDK Benchmark...
+
+
+==================================
+--- Final Text Response ---
+The to-do item 'Fix the benchmark script' with high priority and due date '2024-05-30' has been successfully created and saved. Its details are as follows:
+Title: Fix the benchmark script
+Due Date: 2024-05-30
+Priority: high
+Status: Not done
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "prompt_tokens": 3541,
+  "completion_tokens": 54,
+  "total_tokens": 3595,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 0 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  },
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 1 Usage: {
+  "prompt_tokens": 3616,
+  "completion_tokens": 53,
+  "total_tokens": 3669,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 1 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  },
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 2 Usage: {
+  "prompt_tokens": 3711,
+  "completion_tokens": 64,
+  "total_tokens": 3775,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 2 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "prompt_tokens": 10868,
+  "completion_tokens": 171,
+  "total_tokens": 11039,
+  "total_cached_tokens": 0,
+  "total_reasoning_tokens": 0
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+
+ bun run vercel-ai/tool-40
+Starting Vercel AI SDK Benchmark...
+
+
+==================================
+--- Final Text Response ---
+The to-do "Fix the benchmark script" has been created successfully with the following details:
+- **ID**: `todo_el33pp`
+- **Due Date**: 2024-05-30
+- **Priority**: High
+- **Status**: Pending (not completed)
+
+Let me know if you'd like to modify or manage this task further!
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "prompt_tokens": 3828,
+  "completion_tokens": 480,
+  "total_tokens": 4308,
+  "cached_tokens": 0,
+  "reasoning_tokens": 431
+}
+>>> Turn 0 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  }
+]
+
+>>> Turn 1 Usage: {
+  "prompt_tokens": 4326,
+  "completion_tokens": 246,
+  "total_tokens": 4572,
+  "cached_tokens": 0,
+  "reasoning_tokens": 218
+}
+>>> Turn 1 Tool Calls Logged: [
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 2 Usage: {
+  "prompt_tokens": 4614,
+  "completion_tokens": 263,
+  "total_tokens": 4877,
+  "cached_tokens": 0,
+  "reasoning_tokens": 179
+}
+>>> Turn 2 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "prompt_tokens": 12768,
+  "completion_tokens": 989,
+  "total_tokens": 13757,
+  "total_cached_tokens": 0,
+  "total_reasoning_tokens": 828
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+ bun run vercel-ai/tool-60
+Starting Vercel AI SDK Benchmark...
+
+
+==================================
+--- Final Text Response ---
+The to-do item 'Fix the benchmark script' with high priority and due date '2024-05-30' has been successfully created and saved. Its ID is 'todo_vd0o3x'. The to-do item is not marked as done.
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "prompt_tokens": 5172,
+  "completion_tokens": 54,
+  "total_tokens": 5226,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 0 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  },
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 1 Usage: {
+  "prompt_tokens": 5248,
+  "completion_tokens": 54,
+  "total_tokens": 5302,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 1 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  },
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 2 Usage: {
+  "prompt_tokens": 5345,
+  "completion_tokens": 54,
+  "total_tokens": 5399,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 2 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "prompt_tokens": 15765,
+  "completion_tokens": 162,
+  "total_tokens": 15927,
+  "total_cached_tokens": 0,
+  "total_reasoning_tokens": 0
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+bun run vercel-ai/tool-60
+Starting Vercel AI SDK Benchmark...
+
+
+==================================
+--- Final Text Response ---
+Here’s the to‑do you created:
+
+- **ID:** `todo_0nsnhd`
+- **Title:** Fix the benchmark script
+- **Due date:** 2024‑05‑30
+- **Priority:** high
+- **Status:** pending (not done)
+
+It’s saved correctly. Let me know if you’d like any changes!
+
+--- Step Breakdown ---
+
+>>> Turn 0 Usage: {
+  "prompt_tokens": 2251,
+  "completion_tokens": 94,
+  "total_tokens": 2345,
+  "cached_tokens": 0,
+  "reasoning_tokens": 43
+}
+>>> Turn 0 Tool Calls Logged: [
+  {
+    "name": "create_todo"
+  }
+]
+
+>>> Turn 1 Usage: {
+  "prompt_tokens": 2348,
+  "completion_tokens": 36,
+  "total_tokens": 2384,
+  "cached_tokens": 0,
+  "reasoning_tokens": 8
+}
+>>> Turn 1 Tool Calls Logged: [
+  {
+    "name": "read_todo"
+  }
+]
+
+>>> Turn 2 Usage: {
+  "prompt_tokens": 2419,
+  "completion_tokens": 79,
+  "total_tokens": 2498,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0
+}
+>>> Turn 2 Tool Calls Logged: None (Stop)
+
+--- Aggregate Usage ---
+{
+  "prompt_tokens": 7018,
+  "completion_tokens": 209,
+  "total_tokens": 7227,
+  "total_cached_tokens": 0,
+  "total_reasoning_tokens": 51
+}
+PS C:\Users\babyface\Downloads\benchmark-auwgent-json>
+
+
+tools 80
+AI_APICallError: Request too large for model `qwen/qwen3-32b` in organization `org_01hwf6p00xfzbvh11y929shnmz` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 7684, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing
+      cause: undefined,

@@ -1,7 +1,9 @@
 
 agent TestAccount{
     default config{
-        model: custom("groq-api","https://api.groq.com/openai/v1","openai/gpt-oss-120b")
+        model: groq("qwen/qwen3-32b",{
+            temperature:0
+        })
         prompt: "Be polite and concise when you call a tool,it will return a result, wait and recieve it"
     }
     tool read_todo(id:string):string @desc "read the content of a todo by its id"

@@ -20,7 +20,9 @@ type Support {
 
 agent TestUser{
     default config{
-        model: custom("groq-api","https://api.groq.com/openai/v1","llama-3.3-70b-versatile")
+        model:groq("qwen/qwen3-32b",{
+            temperature: 0
+        })
         prompt: """Your output must match [schema:type] ... [/schema]"""
     }
     output:Booking | Support

@@ -1,7 +1,7 @@
 // Auto-generated types for TestProject
 // Do not edit manually
 // Core Runtime Imports
-import { createAuwgent } from "@snrraptopack/auwgent-sdk";
+import { createAuwgent as createAuwgentRuntime } from "@snrraptopack/auwgent-sdk";
 import type { ToolRegistry } from "@snrraptopack/auwgent-sdk";
 import _importedIR from './project.agent.json' with { type: 'json' };
 type TestProjectIR = Omit<typeof _importedIR, "name" | "workflows" | "helpers"> & {
@@ -10,61 +10,82 @@ type TestProjectIR = Omit<typeof _importedIR, "name" | "workflows" | "helpers"> 
   helpers: undefined;
 };
 const agentIR = _importedIR as unknown as TestProjectIR;
+export type TextPart = import("@snrraptopack/auwgent-sdk").AuwgentTextPart;
+export type ImagePart = import("@snrraptopack/auwgent-sdk").AuwgentImagePart;
+export type FilePart = import("@snrraptopack/auwgent-sdk").AuwgentFilePart;
+export type AudioPart = import("@snrraptopack/auwgent-sdk").AuwgentAudioPart;
+export type VideoPart = import("@snrraptopack/auwgent-sdk").AuwgentVideoPart;
+export type InputPart = import("@snrraptopack/auwgent-sdk").AuwgentInputPart;
+export type MediaSource = import("@snrraptopack/auwgent-sdk").AuwgentBinarySource;
+export type ImageInput = MediaSource & { mimeType?: string; detail?: "auto" | "low" | "high" };
+export type FileInput = MediaSource & { mimeType?: string; name?: string };
+export type AudioInput = MediaSource & { mimeType?: string; transcript?: string };
+export type VideoInput = MediaSource & { mimeType?: string; transcript?: string; sampledFrames?: ImagePart[] };
 export type Project = {
+    tasks: { title: string; priority: "low" | "medium" | "high"; completed: boolean }[];
+    project_name: string;
+}
+export type Input = string
+
+export type AuwgentOutput = {
     project_name: string;
     tasks: { title: string; priority: "low" | "medium" | "high"; completed: boolean }[];
 }
-export type TestProjectInput = {
 
-}
-
-export type TestProjectOutput = {
-    project_name: string;
-    tasks: { title: string; priority: "low" | "medium" | "high"; completed: boolean }[];
-}
-
-export type TestProjectContext = {
+export type AuwgentContext = {
 
 }
 
 /** Custom intents defined in the DSL (if any) */
-export type TestProjectCustomIntents =
+export type AuwgentCustomIntents =
     | never;
 
+export interface AuwgentIntentHandler {
+    response_text?(value: Extract<import("@snrraptopack/auwgent-sdk").AuwgentIntent<typeof agentIR, AuwgentCustomIntents, AuwgentOutput, AuwgentTools>, { name: "response_text" }>["value"], agentName: string): import("@snrraptopack/auwgent-sdk").IntentControl | Promise<import("@snrraptopack/auwgent-sdk").IntentControl> | void | Promise<void>;
+    response_schema?(value: Extract<import("@snrraptopack/auwgent-sdk").AuwgentIntent<typeof agentIR, AuwgentCustomIntents, AuwgentOutput, AuwgentTools>, { name: "response_schema" }>["value"], agentName: string): import("@snrraptopack/auwgent-sdk").IntentControl | Promise<import("@snrraptopack/auwgent-sdk").IntentControl> | void | Promise<void>;
+    error?(value: Extract<import("@snrraptopack/auwgent-sdk").AuwgentIntent<typeof agentIR, AuwgentCustomIntents, AuwgentOutput, AuwgentTools>, { name: "error" }>["value"], agentName: string): import("@snrraptopack/auwgent-sdk").IntentControl | Promise<import("@snrraptopack/auwgent-sdk").IntentControl> | void | Promise<void>;
+}
+
+export class AuwgentBaseIntentHandler implements AuwgentIntentHandler {
+    response_text(value: Extract<import("@snrraptopack/auwgent-sdk").AuwgentIntent<typeof agentIR, AuwgentCustomIntents, AuwgentOutput, AuwgentTools>, { name: "response_text" }>["value"], agentName: string): import("@snrraptopack/auwgent-sdk").IntentControl | Promise<import("@snrraptopack/auwgent-sdk").IntentControl> | void | Promise<void> {}
+    response_schema(value: Extract<import("@snrraptopack/auwgent-sdk").AuwgentIntent<typeof agentIR, AuwgentCustomIntents, AuwgentOutput, AuwgentTools>, { name: "response_schema" }>["value"], agentName: string): import("@snrraptopack/auwgent-sdk").IntentControl | Promise<import("@snrraptopack/auwgent-sdk").IntentControl> | void | Promise<void> {}
+    error(value: Extract<import("@snrraptopack/auwgent-sdk").AuwgentIntent<typeof agentIR, AuwgentCustomIntents, AuwgentOutput, AuwgentTools>, { name: "error" }>["value"], agentName: string): import("@snrraptopack/auwgent-sdk").IntentControl | Promise<import("@snrraptopack/auwgent-sdk").IntentControl> | void | Promise<void> {}
+}
+
 /**
- * API keys required for TestProject
+ * API keys required for Auwgent
  */
-export type TestProjectApiKeys = {
-    groq_apiApiKey: string;  // API key for custom provider 'groq-api'
+export type AuwgentApiKeys = {
+    groqApiKey: string;
 }
 
 // Defined explicitly (not via ReturnType) so RouterMiddleware can derive from it without circularity
-export type TestProjectAgent = import("@snrraptopack/auwgent-sdk").TypedAuwgent<
+export type AuwgentAgent = import("@snrraptopack/auwgent-sdk").TypedAuwgent<
     typeof agentIR,
-    TestProjectCustomIntents,
-    TestProjectOutput,
+    AuwgentCustomIntents,
+    AuwgentOutput,
     Record<string, never>
 >;
 
-/** Middleware object type — consistent with `TestProjectAgent.onIntent` intent narrowing */
-export type TestProjectMiddleware<T extends import("@snrraptopack/auwgent-sdk").MiddlewareContext<typeof agentIR>['activeAgent'] = import("@snrraptopack/auwgent-sdk").MiddlewareContext<typeof agentIR>['activeAgent']> = import("@snrraptopack/auwgent-sdk").Middleware<
+/** Middleware object type — consistent with `AuwgentAgent.onIntent` intent narrowing */
+export type AuwgentMiddleware<T extends import("@snrraptopack/auwgent-sdk").MiddlewareContext<typeof agentIR>['activeAgent'] = import("@snrraptopack/auwgent-sdk").MiddlewareContext<typeof agentIR>['activeAgent']> = import("@snrraptopack/auwgent-sdk").Middleware<
     typeof agentIR,
-    TestProjectCustomIntents,
-    TestProjectOutput,
+    AuwgentCustomIntents,
+    AuwgentOutput,
     Record<string, never>,
     T
 >;
 
-export type TestProjectConfig = {
-    middleware?: TestProjectMiddleware[];
-    apiKeys: TestProjectApiKeys;
+export type AuwgentConfig = {
+    middleware?: AuwgentMiddleware[];
+    apiKeys: AuwgentApiKeys;
 }
 
-export function createTestProject(config: TestProjectConfig): TestProjectAgent {
-    return createAuwgent<
+export function createAuwgent(config: AuwgentConfig): AuwgentAgent {
+    return createAuwgentRuntime<
         typeof agentIR,
-        TestProjectCustomIntents,
-        TestProjectOutput,
+        AuwgentCustomIntents,
+        AuwgentOutput,
         Record<string, never>
     >(agentIR, {
         tools: {} as Record<string, never>,
@@ -73,9 +94,4 @@ export function createTestProject(config: TestProjectConfig): TestProjectAgent {
     });
 }
 
-export const auwgent = createTestProject;
-export type AuwgentTools = Record<string, never>;
-export type AuwgentConfig = TestProjectConfig;
-export type AuwgentAgent = TestProjectAgent;
-export type AuwgentMiddleware = TestProjectMiddleware;
-export type AuwgentContext = TestProjectContext;
+export const auwgent = createAuwgent;

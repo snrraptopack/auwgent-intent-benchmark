@@ -1,0 +1,10 @@
+models to be used:
+qwen/qwen3-32b
+llama-3.3-70b-versatile
+openai/gpt-oss-120b
+
+agentic
+
+Taks requires 2 tools
+For Task A (Requires 2 tools: create_todo, read_todo)
+Create a new high-priority to-do called 'Fix the benchmark script' due on '2024-05-30'. Once it is created, use the ID you received to read the to-do back to me to confirm it was saved properly.

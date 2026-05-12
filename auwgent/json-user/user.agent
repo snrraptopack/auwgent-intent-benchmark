@@ -10,7 +10,9 @@ type Usr{
 
 agent TestUser{
     default config{
-        model: custom("groq-api","https://api.groq.com/openai/v1","llama-3.3-70b-versatile")
+        model: groq("openai/gpt-oss-120b",{
+            temperature: 0
+        })
         prompt: """Your output must match [schema:type] ... [/schema]"""
     }
     output:Usr
